@@ -1,8 +1,8 @@
 class Lazyports < Formula
   desc "Visual TUI port manager with auto-detected project stack. Mac/Linux/Windows."
   homepage "https://github.com/ander0code/lazyports"
-  url "https://github.com/ander0code/lazyports/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "cdbe2368db97347fb7c38b3be945ce9220bd67e355fbcca74781c6d246d6a594"
+  url "https://github.com/ander0code/lazyports/archive/refs/tags/v0.3.2.tar.gz"
+  sha256 "1be0323f235beefec844200816aefcd32b7c09c488c20d7646cc3f5e0211e0a7"
   license "MIT"
 
   depends_on "go" => :build
