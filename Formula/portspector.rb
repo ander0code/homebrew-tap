@@ -2,7 +2,7 @@ class Portspector < Formula
   desc "Visual TUI port manager with auto-detected project stack. Mac/Linux/Windows."
   homepage "https://github.com/ander0code/portspector"
   url "https://github.com/ander0code/portspector/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "82a47674aee34e7e5e096aef7cc193a64333c5ff9b2f49e1c54d070d555f1c92"
+  sha256 "e1128790768d213ea9be2b1c3516ed18ecc0f2132bbdccc7d6f5a76247ae70d8"
   license "MIT"
 
   depends_on "go" => :build
