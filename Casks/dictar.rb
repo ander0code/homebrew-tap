@@ -16,7 +16,7 @@ cask "dictar" do
   # registrado en Apple. En las versiones nuevas ese bloqueo ni siquiera se
   # salta con clic derecho: hay que ir a Ajustes a mano. Quitando la marca
   # despues de instalar, la app abre sin mas.
-  postflight do
+  postflight_steps do
     system_command "/usr/bin/xattr",
                    args: ["-c", "-r", "#{appdir}/Dictar.app"],
                    sudo: false
