@@ -7,10 +7,20 @@ cask "dictar" do
   desc "Dictado por voz en local, sin subir nada a ningun servidor"
   homepage "https://github.com/ander0code/homebrew-tap"
 
-  depends_on macos: :sonoma
+  depends_on macos: ">= :sonoma"
   depends_on arch: :arm64
 
   app "Dictar.app"
+
+  # macOS marca todo lo que llega de internet y bloquea lo que no esta
+  # registrado en Apple. En las versiones nuevas ese bloqueo ni siquiera se
+  # salta con clic derecho: hay que ir a Ajustes a mano. Quitando la marca
+  # despues de instalar, la app abre sin mas.
+  postflight do
+    system_command "/usr/bin/xattr",
+                   args: ["-c", "-r", "#{appdir}/Dictar.app"],
+                   sudo: false
+  end
 
   caveats <<~TEXTO
     Dictar vive en la barra de menus, junto al reloj.
