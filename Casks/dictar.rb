@@ -1,6 +1,6 @@
 cask "dictar" do
-  version "1.0.1"
-  sha256 "299ae6e5a27753deb7a9c0f773188adbe30df98fab7fcea21a64a0d52b05e4d2"
+  version "1.0.2"
+  sha256 "c51850be67e04fd2805bc5be3245964f6e054d22c981fffc3f0a45931c330d0f"
 
   url "https://github.com/ander0code/homebrew-tap/releases/download/dictar-v#{version}/Dictar.dmg"
   name "Dictar"
