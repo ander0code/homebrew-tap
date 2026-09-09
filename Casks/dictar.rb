@@ -16,9 +16,13 @@ cask "dictar" do
   # registrado en Apple. En las versiones nuevas ese bloqueo ni siquiera se
   # salta con clic derecho: hay que ir a Ajustes a mano. Quitando la marca
   # despues de instalar, la app abre sin mas.
-  postflight_steps do
+  #
+  # Se usa `postflight` aunque Homebrew avise de que esta anticuado: su
+  # sustituto, `postflight_steps`, no permite ejecutar comandos ni conoce la
+  # carpeta de aplicaciones, asi que no sirve para esto. El aviso es cosmetico.
+  postflight do
     system_command "/usr/bin/xattr",
-                   args: ["-c", "-r", "/Applications/Dictar.app"],
+                   args: ["-c", "-r", "#{appdir}/Dictar.app"],
                    sudo: false
   end
 
