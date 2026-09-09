@@ -7,7 +7,7 @@ cask "dictar" do
   desc "Dictado por voz en local, sin subir nada a ningun servidor"
   homepage "https://github.com/ander0code/homebrew-tap"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
   depends_on arch: :arm64
 
   app "Dictar.app"
