@@ -17,13 +17,15 @@ cask "dictar" do
   # salta con clic derecho: hay que ir a Ajustes a mano. Quitando la marca
   # despues de instalar, la app abre sin mas.
   #
-  # Se usa `postflight` aunque Homebrew avise de que esta anticuado: su
-  # sustituto, `postflight_steps`, no permite ejecutar comandos ni conoce la
-  # carpeta de aplicaciones, asi que no sirve para esto. El aviso es cosmetico.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-c", "-r", "#{appdir}/Dictar.app"],
-                   sudo: false
+  # Con `postflight_steps`, que es lo que Homebrew pide ahora. La ruta va con
+  # llaves dobles porque estas cadenas las resuelve Homebrew al instalar, no
+  # Ruby al leer el archivo. Y no se exige que salga bien: si algun dia xattr
+  # no encuentra nada que quitar, la instalacion no tiene por que fallar.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-c", "-r", "{{appdir}}/Dictar.app"],
+        writable_paths: ["{{appdir}}/Dictar.app"],
+        must_succeed:   false
   end
 
   caveats <<~TEXTO
