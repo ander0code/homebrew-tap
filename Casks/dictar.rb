@@ -18,7 +18,7 @@ cask "dictar" do
   # despues de instalar, la app abre sin mas.
   postflight_steps do
     system_command "/usr/bin/xattr",
-                   args: ["-c", "-r", "#{appdir}/Dictar.app"],
+                   args: ["-c", "-r", "/Applications/Dictar.app"],
                    sudo: false
   end
 
