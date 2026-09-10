@@ -1,6 +1,6 @@
 cask "dictar" do
-  version "1.0.3"
-  sha256 "ee979ef953019663db9bc6ac61bc26c4cba7a110a13525ef8c08273906df4fcb"
+  version "1.0.4"
+  sha256 "a5121870f7419c45cfe2c4d86c6c3dc9d3fb803a9245e949c9f6328078101026"
 
   url "https://github.com/ander0code/homebrew-tap/releases/download/dictar-v#{version}/Dictar.dmg"
   name "Dictar"
@@ -39,6 +39,15 @@ cask "dictar" do
          aplica cuando el programa arranca.
 
     Y un modelo de voz de 466 MB que se baja desde el panel, una sola vez.
+
+    En el menu hay un interruptor con dos modos. Individual graba solo tu voz
+    y escribe donde tengas el cursor. Reunion graba ademas lo que suena en el
+    Mac, o sea la otra persona de una llamada, y guarda el texto en la ventana
+    con cada linea marcada como Tu o Ellos.
+
+    Para reunion macOS pedira un permiso mas, el de grabar el audio del Mac.
+    Con auriculares sale mejor: con altavoces tu microfono oye tambien a la
+    otra persona.
 
     El primer dictado tarda unos 20 segundos preparando la tarjeta grafica.
     Despues responde en menos de medio segundo.
