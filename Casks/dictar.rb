@@ -1,14 +1,14 @@
 cask "dictar" do
-  version "1.1.2"
-  sha256 "4b95bdcd01e408cb294bf0b8fcdec5607d916ce9a1c10a05cc5c8652d22dd093"
+  version "1.4.0"
+  sha256 "34dd9c4896c03baaba6fac9b0b3b88ff75fbd51eaec5b3b68a80ddff70775396"
 
   url "https://github.com/ander0code/homebrew-tap/releases/download/dictar-v#{version}/Dictar.dmg"
   name "Dictar"
   desc "Dictado por voz en local, sin subir nada a ningun servidor"
   homepage "https://github.com/ander0code/homebrew-tap"
 
-  depends_on macos: :sonoma
   depends_on arch: :arm64
+  depends_on macos: :sonoma
 
   app "Dictar.app"
 
@@ -28,6 +28,11 @@ cask "dictar" do
         must_succeed:   false
   end
 
+  zap trash: [
+    "~/.cache/whisper-cpp",
+    "~/Library/Preferences/pe.ttito.dictar.plist",
+  ]
+
   caveats <<~TEXTO
     Dictar vive en la barra de menus, junto al reloj.
 
@@ -35,15 +40,16 @@ cask "dictar" do
 
       1. Microfono, desde el propio panel de la app.
       2. Accesibilidad, en Ajustes del sistema, Privacidad y seguridad.
-         Despues de darlo hay que CERRAR Y ABRIR la app: macOS solo lo
-         aplica cuando el programa arranca.
+         Despues de darlo pulsa Reiniciar en el menu de la barra: macOS
+         solo lo aplica cuando el programa arranca.
 
     Y un modelo de voz de 466 MB que se baja desde el panel, una sola vez.
 
     En el menu hay un interruptor con dos modos. Individual graba solo tu voz
     y escribe donde tengas el cursor. Reunion graba ademas lo que suena en el
-    Mac, o sea la otra persona de una llamada, y guarda el texto en la ventana
-    con cada linea marcada como Tu o Ellos.
+    Mac, o sea la otra persona de una llamada, y escribe el texto donde tengas
+    el cursor, ademas de guardarlo en la ventana con cada linea marcada como
+    Tu o Ellos.
 
     Para reunion macOS pedira un permiso mas, el de grabar el audio del Mac.
     Con auriculares sale mejor: con altavoces tu microfono oye tambien a la
@@ -54,10 +60,10 @@ cask "dictar" do
 
     Como se usa: manten Control y habla, o pulsa fn+Espacio para empezar y
     otra vez para terminar. Escape corta siempre.
-  TEXTO
 
-  zap trash: [
-    "~/Library/Preferences/pe.ttito.dictar.plist",
-    "~/.cache/whisper-cpp",
-  ]
+    El microfono se elige en el menu. En automatico usa el del sistema, pero
+    nunca los virtuales de Zoom o Teams. Si algo deja de responder, el boton
+    Reiniciar del menu lo arregla, y la app tambien se reinicia sola cuando
+    detecta un fallo.
+  TEXTO
 end
